@@ -6,8 +6,8 @@ void InitialScreen(void);
 void StartGame(void);
 void Help(void);
 
-
 char playerchoice;
+
 char Questions[15][100] = {
                                 "What's the biggest animal in the world?",
                                 "Who painted the Mona Lisa?",
@@ -89,9 +89,9 @@ void StartGame(void)
             printf("\t\t_____________________________________________\n\n");
             printf("\t\t%i) %s\n\n", i+1, Questions[i]);
             printf("\t\tA) s");
-            printf("\t\tB) s\n");
+            printf("\t\t\tB) s\n");
             printf("\t\tC) s");
-            printf("\t\tD) s");
+            printf("\t\t\tD) s");
             printf("\n\n\n\t>>> ");
             playerchoice = getche();
             system("cls");
