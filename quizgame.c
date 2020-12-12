@@ -85,10 +85,12 @@ void StartGame(void)
       system("cls");
       for(int i = 0; i < 15; i++)
       {
-            printf("%i) %s\n\n", i+1, Questions[i]);
-            printf("A) s");
+            printf("\n\t\t\t\t  QUIZ GAME\n");
+            printf("\t\t_____________________________________________\n\n");
+            printf("\t\t%i) %s\n\n", i+1, Questions[i]);
+            printf("\t\tA) s");
             printf("\t\tB) s\n");
-            printf("C) s");
+            printf("\t\tC) s");
             printf("\t\tD) s");
             printf("\n\n\n>>> ");
             playerchoice = getche();
