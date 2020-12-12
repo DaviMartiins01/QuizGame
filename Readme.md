@@ -1,1 +1,1 @@
-"# QuizGame" 
+Quiz Game in c programming.

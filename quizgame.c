@@ -6,6 +6,8 @@ void InitialScreen(void);
 void StartGame(void);
 void Help(void);
 
+
+char playerchoice;
 char Questions[15][100] = {
                                 "What's the biggest animal in the world?",
                                 "Who painted the Mona Lisa?",
@@ -24,7 +26,6 @@ char Questions[15][100] = {
                                 "What's a baby rabbit called?"
                           };
 
-char playerchoice;
 int loop = 1;
 
 int main(void)
