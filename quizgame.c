@@ -92,7 +92,7 @@ void StartGame(void)
             printf("\t\tB) s\n");
             printf("\t\tC) s");
             printf("\t\tD) s");
-            printf("\n\n\n>>> ");
+            printf("\n\n\n\t>>> ");
             playerchoice = getche();
             system("cls");
       }
