@@ -2,17 +2,18 @@
 #include <stdlib.h>
 #include <conio.h>
 
+#define number_of_questions 15
+
 void InitialScreen(void);
 void StartGame(void);
 void Help(void);
 
 int score;
-int number_of_questions = 15;
 
 char playerchoice;
 
 
-char Questions[15][100] = {
+char Questions[number_of_questions][100] = {
                                 "What's the biggest animal in the world?",
                                 "Who painted the Mona Lisa?",
                                 "In Harry Potter, what is the name of The Weasley's house?",
@@ -28,7 +29,88 @@ char Questions[15][100] = {
                                 "How many valves does the heart have?",
                                 "What nut is in the middle of a Ferrero Rocher?",
                                 "What's a baby rabbit called?"
-                          };
+                            };
+
+char Awnswers[number_of_questions*4][100] = {
+                                          "A) The blue whale",
+                                          "B) African Bush Elephant",
+                                          "C) Sperm Whale",
+                                          "D) Polar Bear",
+
+
+                                          "A) Michelangelo",
+                                          "B) Henri Matisse",
+                                          "C) Leonardo da Vinci",
+                                          "D) Edvard Munch",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                          "A) ",
+                                          "B) ",
+                                          "C) ",
+                                          "D) ",
+
+                                      };
+
+char CorrectAnswers[number_of_questions] = {'a', 'c'};
 
 int loop = 1;
 
@@ -93,14 +175,14 @@ void StartGame(void)
       int b = 0;
       for(int i = 0; i < number_of_questions; i++, b = b + 4)
       {
-            printf("\n\t\t\t\t  QUIZ GAME\n");
-            printf("\t\t_____________________________________________\n\n");
+            printf("\n\t\t\t\t\t  QUIZ GAME\n");
+            printf("\t\t_______________________________________________________________\n\n");
             printf("\t\t%i) %s\n\n", i+1, Questions[i]);
-            printf("\t\tA) %i", b);
-            printf("\t\t\tB) %i\n", b+1);
-            printf("\t\tC) %i", b+2);
-            printf("\t\t\tD) %i", b+3);
-            printf("\n\n\n\t>>> ");
+            printf("\t\t%s", Awnswers[b]);
+            printf("\t\t\t\t%s\n\n", Awnswers[b+1]);
+            printf("\t\t%s", Awnswers[b+2]);
+            printf("\t\t\t\t%s\n", Awnswers[b+3]);
+            printf("\n\n\t>>> ");
 
             playerchoice = getche();
             score++;
