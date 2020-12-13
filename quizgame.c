@@ -37,7 +37,6 @@ char Awnswers[number_of_questions*4][100] = {
                                           "C) Sperm Whale   ",
                                           "D) Polar Bear",
 
-
                                           "A) Michelangelo     ",
                                           "B) Henri Matisse",
                                           "C) Leonardo da Vinci",

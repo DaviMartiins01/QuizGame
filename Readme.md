@@ -1,1 +1,1 @@
-Quiz Game in c programming.
+A general knowledge quiz game in c programming.
