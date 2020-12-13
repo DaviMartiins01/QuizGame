@@ -6,7 +6,11 @@ void InitialScreen(void);
 void StartGame(void);
 void Help(void);
 
+int score;
+int number_of_questions = 15;
+
 char playerchoice;
+
 
 char Questions[15][100] = {
                                 "What's the biggest animal in the world?",
@@ -41,6 +45,8 @@ int main(void)
 void InitialScreen(void)
 {
       system("cls");
+      score = 0;
+
       printf("\n\n\t\t    WELCOME TO THE GAME!!\n\n");
       printf("\t\t_____________________________\n\n");
       printf("\t\t> Press S for start the game\n");
@@ -50,6 +56,7 @@ void InitialScreen(void)
       printf("\t\t> Press Q to quit\n");
       printf("\t\t_____________________________\n\n");
       printf("\t>>>");
+
       playerchoice = getche();
 
       switch (playerchoice)
@@ -83,17 +90,20 @@ void InitialScreen(void)
 void StartGame(void)
 {
       system("cls");
-      for(int i = 0; i < 15; i++)
+      int b = 0;
+      for(int i = 0; i < number_of_questions; i++, b = b + 4)
       {
             printf("\n\t\t\t\t  QUIZ GAME\n");
             printf("\t\t_____________________________________________\n\n");
             printf("\t\t%i) %s\n\n", i+1, Questions[i]);
-            printf("\t\tA) s");
-            printf("\t\t\tB) s\n");
-            printf("\t\tC) s");
-            printf("\t\t\tD) s");
+            printf("\t\tA) %i", b);
+            printf("\t\t\tB) %i\n", b+1);
+            printf("\t\tC) %i", b+2);
+            printf("\t\t\tD) %i", b+3);
             printf("\n\n\n\t>>> ");
+
             playerchoice = getche();
+            score++;
             system("cls");
       }
 }
