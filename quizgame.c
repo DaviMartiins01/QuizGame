@@ -126,7 +126,6 @@ int main(void)
 void InitialScreen(void)
 {
       system("cls");
-      score = 0;
 
       printf("\n\n\t\t    WELCOME TO THE GAME!!\n\n");
       printf("\t\t_____________________________\n\n");
@@ -147,7 +146,7 @@ void InitialScreen(void)
               break;
 
             case 'v':
-              printf("View score");
+              printf("view score");
               break;
 
             case 'r':
@@ -184,7 +183,16 @@ void StartGame(void)
             printf("\n\n\t>>> ");
 
             playerchoice = getche();
-            score++;
+
+            if(playerchoice == CorrectAnswers[i])
+            {
+                score++;
+            }
+            else
+            {
+                InitialScreen();
+                break;
+            }
             system("cls");
       }
 }
