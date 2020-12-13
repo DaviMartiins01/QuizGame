@@ -14,103 +14,102 @@ char playerchoice;
 
 
 char Questions[number_of_questions][100] = {
-                                "What's the biggest animal in the world?",
-                                "Who painted the Mona Lisa?",
-                                "In Harry Potter, what is the name of The Weasley's house?",
-                                "Typically, what's the strongest muscle in the human body?",
-                                "What month was Prince George born?",
-                                "Who plays Emily in the hit Netflix show, Emily In Paris?",
-                                "Which rapper's real name is Dylan Kwabena Mills?",
-                                "What year did Margaret Thatcher die?",
-                                "Which planet is closest to the sun?",
-                                "What is Queen Elizabeth II's surname?",
-                                "What is the largest country in the world?",
-                                "What is the name of the school in Sex Education?",
-                                "How many valves does the heart have?",
-                                "What nut is in the middle of a Ferrero Rocher?",
-                                "What's a baby rabbit called?"
+                                "1) What's the biggest animal in the world?",
+                                "2) Who painted the Mona Lisa?",
+                                "3) In Harry Potter, what is the name of The Weasley's house?",
+                                "4) Typically, what's the strongest muscle in the human body?",
+                                "5) What month was Prince George born?",
+                                "6) Who plays Emily in the hit Netflix show, Emily In Paris?",
+                                "7) Which rapper's real name is Dylan Kwabena Mills?",
+                                "8) What year did Margaret Thatcher die?",
+                                "9) Which planet is closest to the sun?",
+                                "10) What is Queen Elizabeth II's surname?",
+                                "11) What is the largest country in the world?",
+                                "12) What is the name of the school in Sex Education?",
+                                "13) How many valves does the heart have?",
+                                "14) What nut is in the middle of a Ferrero Rocher?",
+                                "15) What's a baby rabbit called?"
                             };
 
 char Awnswers[number_of_questions*4][100] = {
                                           "A) The blue whale",
                                           "B) African Bush Elephant",
-                                          "C) Sperm Whale",
+                                          "C) Sperm Whale   ",
                                           "D) Polar Bear",
 
 
-                                          "A) Michelangelo",
+                                          "A) Michelangelo     ",
                                           "B) Henri Matisse",
                                           "C) Leonardo da Vinci",
                                           "D) Edvard Munch",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) the Shell",
+                                          "B) The Burrow",
+                                          "C) The Cave ",
+                                          "D) Gryffindor",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Masseter",
+                                          "B) Plantaris",
+                                          "C) Deltoids",
+                                          "D) Teres major",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) June ",
+                                          "B) March",
+                                          "C) April",
+                                          "D) July",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Anna Faris",
+                                          "B) Lily Collins",
+                                          "C) Ellen Page",
+                                          "D) Chloe Grace Moretz",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Dr. Dre      ",
+                                          "B) Tupac",
+                                          "C) Dizzee Rascal",
+                                          "D) Jay-Z",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) 2013",
+                                          "B) 2011",
+                                          "C) 2012",
+                                          "D) 2014",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Venus  ",
+                                          "B) Mars",
+                                          "C) Mercury",
+                                          "D) Earth",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Wales   ",
+                                          "B) Windor",
+                                          "C) Coventry",
+                                          "D) Agnes",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Russia",
+                                          "B) China",
+                                          "C) Brazil",
+                                          "D) India",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Miles Ahead   ",
+                                          "B) Bellwether High School",
+                                          "C) Maiden College",
+                                          "D) Moordale High",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Three",
+                                          "B) Five",
+                                          "C) Six  ",
+                                          "D) Four",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
+                                          "A) Chestnuts",
+                                          "B) Hazelnut",
+                                          "C) Cashew   ",
+                                          "D) Almonds",
 
-                                          "A) ",
-                                          "B) ",
-                                          "C) ",
-                                          "D) ",
-
+                                          "A) kit",
+                                          "B) Cria",
+                                          "C) Pup",
+                                          "D) calf",
                                       };
 
-char CorrectAnswers[number_of_questions] = {'a', 'c'};
+char CorrectAnswers[number_of_questions] = {'a', 'c', 'b', 'a', 'd', 'b', 'c', 'a', 'c', 'b', 'a', 'd', 'd', 'b', 'a'};
 
 int loop = 1;
 
@@ -177,7 +176,7 @@ void StartGame(void)
       {
             printf("\n\t\t\t\t\t  QUIZ GAME\n");
             printf("\t\t_______________________________________________________________\n\n");
-            printf("\t\t%i) %s\n\n", i+1, Questions[i]);
+            printf("\t\t%s\n\n", Questions[i]);
             printf("\t\t%s", Awnswers[b]);
             printf("\t\t\t\t%s\n\n", Awnswers[b+1]);
             printf("\t\t%s", Awnswers[b+2]);
