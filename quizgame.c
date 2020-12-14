@@ -12,6 +12,12 @@ int score;
 
 char playerchoice;
 
+struct SingUp{
+      char name[20];
+      int score;
+    };
+
+struct SingUp player;
 
 char Questions[number_of_questions][100] = {
                                 "1) What's the biggest animal in the world?",
@@ -105,7 +111,7 @@ char Awnswers[number_of_questions*4][100] = {
                                           "A) kit",
                                           "B) Cria",
                                           "C) Pup",
-                                          "D) calf",
+                                          "D) Calf",
                                       };
 
 char CorrectAnswers[number_of_questions] = {'a', 'c', 'b', 'a', 'd', 'b', 'c', 'a', 'c', 'b', 'a', 'd', 'd', 'b', 'a'};
@@ -157,7 +163,8 @@ void InitialScreen(void)
               break;
 
             case 'q':
-              printf("quit");
+              system("cls");
+              printf("Thanks for playing.\n");
               loop = 0;
               break;
 
@@ -168,6 +175,10 @@ void InitialScreen(void)
 
 void StartGame(void)
 {
+      system("cls");
+      printf("Type your nickname: ");
+      scanf("%s", player.name);
+
       system("cls");
       int b = 0;
       for(int i = 0; i < number_of_questions; i++, b = b + 4)
@@ -199,7 +210,7 @@ void StartGame(void)
 void Help(void)
 {
       system("cls");
-      printf("\n\n\t\t\tHELP!\n");
+      printf("\n\n\t\t\t    HELP!\n");
       printf("\t\t_____________________________\n\n");
       printf("\tIf you don't know how to play a quiz, please kill yourself\n\n");
       printf("Prees any key for back >>> ");
