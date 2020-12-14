@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <string.h>
 
 #define number_of_questions 15
 
 void InitialScreen(void);
 void StartGame(void);
-void ViewScore();
+void ViewScore(void);
 void Help(void);
 
 int score;
@@ -20,17 +21,17 @@ struct SingUp{
 
 struct SingUp player;
 
-char players[10][20] = {
+char Players[10][20] = {
                   "Player0",
-                  "Player1",
-                  "Player2",
-                  "Player3",
-                  "Player4",
-                  "Player5",
-                  "Player6",
-                  "Player7",
-                  "Player8",
-                  "Player9"
+                  "Player0",
+                  "Player0",
+                  "Player0",
+                  "Player0",
+                  "Player0",
+                  "Player0",
+                  "Player0",
+                  "Player0",
+                  "Player0"
                 };
 
 char Questions[number_of_questions][100] = {
@@ -144,7 +145,6 @@ int main(void)
 
 void InitialScreen(void)
 {
-      score = 0;
       system("cls");
 
       printf("\n\n\t\t    WELCOME TO THE GAME!!\n\n");
@@ -216,6 +216,7 @@ void StartGame(void)
             else
             {
                 player.score = score;
+                Players[0][20] = player.name;
                 InitialScreen();
                 break;
             }
@@ -223,7 +224,7 @@ void StartGame(void)
       }
 }
 
-void ViewScore()
+void ViewScore(void)
 {
       system("cls");
       printf("\n\t\t\t\t\t  View Score\n");
@@ -231,7 +232,14 @@ void ViewScore()
       printf("\t\t\t\t Nicknames\t\tScores\n");
       for(int i = 0; i < 9; i++)
       {
-          printf("\n\t\t\t\tPlaiyer %i\t|\t%i ", i, 80-i*3);
+            if(strcmp(Players[i], "Player0") == 0)
+            {
+                printf("\n\t\t\t\tPlayer %i\t|\t%i ", i, 80-i*3);
+            }
+            else
+            {
+                printf("\n\t\t\t\t%s\t\t|\t%d", player.name, player.score);
+            }
       }
 
       printf("\n\nPrees any key for back >>> ");
