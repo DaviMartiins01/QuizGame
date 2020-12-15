@@ -8,12 +8,14 @@
 void InitialScreen(void);
 void StartGame(void);
 void ViewScore(void);
+void CheckPlayersOrder(void);
 void PutinOrder(void);
 void ResetScore(void);
 void Help(void);
 
 int score;
 int playercount = 0;
+int minrank = 10;
 
 char playerchoice;
 
@@ -225,29 +227,44 @@ void StartGame(void)
 
 void PutinOrder(void)
 {
-      for(int i = 0; i < 10; i++)
+        for(int i = 0; i < minrank; i++)
+        {
+              if(ScorePlayers[i] < ScorePlayers[i+1])
+              {
+                  int SaveScore = ScorePlayers[i];
+                  ScorePlayers[i] = ScorePlayers[i+1];
+                  ScorePlayers[i+1] = SaveScore;
+
+                  char saveNickname[20];
+                  memcpy(saveNickname, nickname[i], 7);
+                  memcpy(nickname[i], nickname[i+1], 7);
+                  memcpy(nickname[i+1], saveNickname, 7);
+              }
+        }
+}
+
+void CheckPlayersOrder(void)
+{
+      while(0 == 0)
       {
-            if(strcmp(nickname[i], "Player0") != 0)
+            int inOrder = 0;
+            for(int i = 0; i < minrank; i++)
             {
                   if(ScorePlayers[i] < ScorePlayers[i+1])
                   {
-                      int SaveScore = ScorePlayers[i];
-                      ScorePlayers[i] = ScorePlayers[i+1];
-                      ScorePlayers[i+1] = SaveScore;
-
-                      char saveNickname[20];
-                      memcpy(saveNickname, nickname[i], 7);
-                      memcpy(nickname[i], nickname[i+1], 7);
-                      memcpy(nickname[i+1], saveNickname, 7);
+                      inOrder = 1;
                   }
             }
-
+            if(inOrder == 0)
+                break;
+            else
+                PutinOrder();
       }
 }
 
 void ResetScore(void)
 {
-      for(int i = 0; i < 10; i++)
+      for(int i = 0; i < minrank; i++)
       {
           memcpy(nickname[i], "Player0", 7);
           ScorePlayers[i] = 0;
@@ -256,12 +273,12 @@ void ResetScore(void)
 
 void ViewScore(void)
 {
-      PutinOrder();
+      CheckPlayersOrder();
       system("cls");
       printf("\n\t\t\t\t\t  View Score\n");
       printf("\t\t_______________________________________________________________\n\n");
       printf("\t\t\t\t Nicknames\t\tScores\n");
-      for(int i = 0; i < 10; i++)
+      for(int i = 0; i < minrank; i++)
       {
             if(strcmp(nickname[i], "Player0") == 0)
             {
