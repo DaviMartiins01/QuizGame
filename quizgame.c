@@ -14,9 +14,8 @@ int score;
 int playercount = 0;
 
 char playerchoice;
-char nickname[20];
 
-char Players[10][20] = {
+char nickname[10][20] = {
                   "Player0",
                   "Player0",
                   "Player0",
@@ -142,6 +141,7 @@ int main(void)
 
 void InitialScreen(void)
 {
+      score = 0;
       system("cls");
 
       printf("\n\n\t\t    WELCOME TO THE GAME!!\n\n");
@@ -189,7 +189,7 @@ void StartGame(void)
 {
       system("cls");
       printf("Type your nickname: ");
-      scanf("%s", nickname);
+      scanf("%s", nickname[playercount]);
 
       system("cls");
       int b = 0;
@@ -212,8 +212,8 @@ void StartGame(void)
             }
             if(playerchoice != CorrectAnswers[i] || i == number_of_questions-1)
             {
-                ScorePlayers[0] = score;
-                Players[0][20] = nickname;
+                ScorePlayers[playercount] = score;
+                playercount++;
                 InitialScreen();
                 break;
             }
@@ -221,21 +221,22 @@ void StartGame(void)
       }
 }
 
+
 void ViewScore(void)
 {
       system("cls");
       printf("\n\t\t\t\t\t  View Score\n");
       printf("\t\t_______________________________________________________________\n\n");
       printf("\t\t\t\t Nicknames\t\tScores\n");
-      for(int i = 1; i < 10; i++)
+      for(int i = 0; i < 10; i++)
       {
-            if(strcmp(Players[i], "Player0") == 0)
+            if(strcmp(nickname[i], "Player0") == 0)
             {
                 printf("\n\t\t\t\t-------\t\t|\t0");
             }
             else
             {
-                printf("\n\t\t\t\t%s\t\t|\t%d", nickname, ScorePlayers[i-1]);
+                printf("\n\t\t\t\t%s\t\t|\t%d", nickname[i], ScorePlayers[i]);
             }
       }
 
