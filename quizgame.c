@@ -8,6 +8,7 @@
 void InitialScreen(void);
 void StartGame(void);
 void ViewScore(void);
+void ResetScore(void);
 void Help(void);
 
 int score;
@@ -147,7 +148,7 @@ void InitialScreen(void)
       printf("\n\n\t\t    WELCOME TO THE GAME!!\n\n");
       printf("\t\t_____________________________\n\n");
       printf("\t\t> Press S for start the game\n");
-      printf("\t\t> Press V to view the highest score\n");
+      printf("\t\t> Press V to view the ranking\n");
       printf("\t\t> Press R to reset score\n");
       printf("\t\t> Press H for help\n");
       printf("\t\t> Press Q to quit\n");
@@ -167,7 +168,7 @@ void InitialScreen(void)
               break;
 
             case 'r':
-              printf("Reset score");
+              ResetScore();
               break;
 
             case 'h':
@@ -221,6 +222,14 @@ void StartGame(void)
       }
 }
 
+void ResetScore(void)
+{
+      for(int i = 0; i < 10; i++)
+      {
+          memcpy(nickname[i], "Player0", 7);
+          ScorePlayers[i] = 0;
+      }
+}
 
 void ViewScore(void)
 {
