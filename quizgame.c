@@ -11,15 +11,10 @@ void ViewScore(void);
 void Help(void);
 
 int score;
+int playercount = 0;
 
 char playerchoice;
-
-struct SingUp{
-      char name[20];
-      int score;
-    };
-
-struct SingUp player;
+char nickname[20];
 
 char Players[10][20] = {
                   "Player0",
@@ -33,6 +28,8 @@ char Players[10][20] = {
                   "Player0",
                   "Player0"
                 };
+
+int ScorePlayers[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 char Questions[number_of_questions][100] = {
                                 "1) What's the biggest animal in the world?",
@@ -192,7 +189,7 @@ void StartGame(void)
 {
       system("cls");
       printf("Type your nickname: ");
-      scanf("%s", player.name);
+      scanf("%s", nickname);
 
       system("cls");
       int b = 0;
@@ -213,10 +210,10 @@ void StartGame(void)
             {
                 score++;
             }
-            else
+            if(playerchoice != CorrectAnswers[i] || i == number_of_questions-1)
             {
-                player.score = score;
-                Players[0][20] = player.name;
+                ScorePlayers[0] = score;
+                Players[0][20] = nickname;
                 InitialScreen();
                 break;
             }
@@ -230,15 +227,15 @@ void ViewScore(void)
       printf("\n\t\t\t\t\t  View Score\n");
       printf("\t\t_______________________________________________________________\n\n");
       printf("\t\t\t\t Nicknames\t\tScores\n");
-      for(int i = 0; i < 9; i++)
+      for(int i = 1; i < 10; i++)
       {
             if(strcmp(Players[i], "Player0") == 0)
             {
-                printf("\n\t\t\t\tPlayer %i\t|\t%i ", i, 80-i*3);
+                printf("\n\t\t\t\t-------\t\t|\t0");
             }
             else
             {
-                printf("\n\t\t\t\t%s\t\t|\t%d", player.name, player.score);
+                printf("\n\t\t\t\t%s\t\t|\t%d", nickname, ScorePlayers[i-1]);
             }
       }
 
