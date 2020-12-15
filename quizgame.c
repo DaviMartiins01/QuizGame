@@ -8,6 +8,7 @@
 void InitialScreen(void);
 void StartGame(void);
 void ViewScore(void);
+void PutinOrder(void);
 void ResetScore(void);
 void Help(void);
 
@@ -219,6 +220,19 @@ void StartGame(void)
                 break;
             }
             system("cls");
+      }
+}
+
+void PutinOrder(void)
+{
+      for(int i = 0; i < 10; i++)
+      {
+            if(ScorePlayers[i] > ScorePlayers[i+1])
+            {
+                int SaveScore = ScorePlayers[i];
+                ScorePlayers[i] = ScorePlayers[i+1];
+                ScorePlayers[i+1] = SaveScore;
+            }
       }
 }
 
