@@ -227,12 +227,21 @@ void PutinOrder(void)
 {
       for(int i = 0; i < 10; i++)
       {
-            if(ScorePlayers[i] > ScorePlayers[i+1])
+            if(strcmp(nickname[i], "Player0") != 0)
             {
-                int SaveScore = ScorePlayers[i];
-                ScorePlayers[i] = ScorePlayers[i+1];
-                ScorePlayers[i+1] = SaveScore;
+                  if(ScorePlayers[i] < ScorePlayers[i+1])
+                  {
+                      int SaveScore = ScorePlayers[i];
+                      ScorePlayers[i] = ScorePlayers[i+1];
+                      ScorePlayers[i+1] = SaveScore;
+
+                      char saveNickname[20];
+                      memcpy(saveNickname, nickname[i], 7);
+                      memcpy(nickname[i], nickname[i+1], 7);
+                      memcpy(nickname[i+1], saveNickname, 7);
+                  }
             }
+
       }
 }
 
@@ -247,6 +256,7 @@ void ResetScore(void)
 
 void ViewScore(void)
 {
+      PutinOrder();
       system("cls");
       printf("\n\t\t\t\t\t  View Score\n");
       printf("\t\t_______________________________________________________________\n\n");
